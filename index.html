@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Preparando...</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:'Inter',sans-serif;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background: radial-gradient(circle at top,#2a0048,#120021,#070010);
+color:white;
+overflow:hidden;
+
+}
+
+/* brilho fundo */
+
+.bg-glow{
+
+position:absolute;
+width:700px;
+height:700px;
+background: radial-gradient(circle,#7a00ff30,transparent);
+filter:blur(120px);
+
+}
+
+/* partículas */
+
+.particle{
+
+position:absolute;
+width:6px;
+height:6px;
+background:#d4af37;
+border-radius:50%;
+opacity:.4;
+animation:float 10s linear infinite;
+
+}
+
+@keyframes float{
+
+from{
+transform:translateY(110vh);
+}
+
+to{
+transform:translateY(-10vh);
+}
+
+}
+
+/* container */
+
+.box{
+
+width:90%;
+max-width:420px;
+padding:45px 30px;
+border-radius:24px;
+
+background:rgba(30,0,50,.75);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(212,175,55,.25);
+
+box-shadow:0 20px 70px rgba(0,0,0,.6);
+
+text-align:center;
+
+}
+
+/* titulo */
+
+.title{
+
+font-family:'Poppins',sans-serif;
+font-size:32px;
+font-weight:700;
+
+background:linear-gradient(90deg,#d4af37,#ffe58a);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+margin-bottom:10px;
+
+}
+
+.subtitle{
+
+color:#d9c7ff;
+margin-bottom:25px;
+font-size:15px;
+
+}
+
+/* barra */
+
+.progress{
+
+width:100%;
+height:18px;
+background:#2b0045;
+border-radius:30px;
+overflow:hidden;
+
+}
+
+.bar{
+
+height:100%;
+width:0%;
+
+background:linear-gradient(90deg,#d4af37,#ffd86b);
+
+border-radius:30px;
+
+transition:.3s;
+
+}
+
+/* porcentagem */
+
+.percent{
+
+margin-top:12px;
+font-weight:700;
+font-size:18px;
+color:#ffd86b;
+
+}
+
+/* botão */
+
+.btn{
+
+display:block;
+margin-top:30px;
+padding:15px;
+
+background:linear-gradient(135deg,#d4af37,#ffd86b);
+
+color:#2a0048;
+
+border-radius:40px;
+
+text-decoration:none;
+
+font-weight:700;
+
+font-family:'Poppins',sans-serif;
+
+transition:.25s;
+
+}
+
+.btn:hover{
+
+transform:scale(1.05);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<script>
+
+/* partículas */
+
+for(let i=0;i<30;i++){
+
+let p=document.createElement("div")
+
+p.className="particle"
+
+p.style.left=Math.random()*100+"vw"
+
+p.style.animationDuration=(6+Math.random()*8)+"s"
+
+document.body.appendChild(p)
+
+}
+
+</script>
+
+<div class="box">
+
+<div class="title">
+MEGA FEIRÃO
+</div>
+
+<div class="subtitle">
+Sua oferta está sendo preparada
+</div>
+
+<div class="progress">
+<div class="bar" id="bar"></div>
+</div>
+
+<div class="percent" id="percent">
+0%
+</div>
+
+<a class="btn" href="https://centrodefeiraainc.github.io/2feirao/inicio/">
+CONTINUAR
+</a>
+
+</div>
+
+<script>
+
+let p=0
+
+let bar=document.getElementById("bar")
+
+let txt=document.getElementById("percent")
+
+let loading=setInterval(()=>{
+
+p++
+
+bar.style.width=p+"%"
+
+txt.innerText=p+"%"
+
+if(p>=100) clearInterval(loading)
+
+},40)
+
+</script>
+
+</body>
+</html>
