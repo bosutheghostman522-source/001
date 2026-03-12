@@ -7,7 +7,7 @@
 
 <title>Preparando...</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -22,70 +22,68 @@ body{
 font-family:'Inter',sans-serif;
 height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
-background: radial-gradient(circle at top,#2a0048,#120021,#070010);
+align-items:center;
+
+background:linear-gradient(160deg,#020617,#020b1a,#00172e);
+
 color:white;
+
 overflow:hidden;
 
 }
 
 /* brilho fundo */
 
-.bg-glow{
+body::before{
+
+content:"";
 
 position:absolute;
-width:700px;
-height:700px;
-background: radial-gradient(circle,#7a00ff30,transparent);
+
+width:800px;
+height:800px;
+
+background:radial-gradient(circle,#00f0ff33,transparent);
+
 filter:blur(120px);
 
-}
-
-/* partículas */
-
-.particle{
-
-position:absolute;
-width:6px;
-height:6px;
-background:#d4af37;
-border-radius:50%;
-opacity:.4;
-animation:float 10s linear infinite;
+animation:moveGlow 10s infinite alternate;
 
 }
 
-@keyframes float{
+@keyframes moveGlow{
 
 from{
-transform:translateY(110vh);
+transform:translate(-30%,-30%);
 }
 
 to{
-transform:translateY(-10vh);
+transform:translate(30%,30%);
 }
 
 }
 
 /* container */
 
-.box{
+.card{
 
 width:90%;
 max-width:420px;
+
 padding:45px 30px;
-border-radius:24px;
 
-background:rgba(30,0,50,.75);
+border-radius:20px;
 
-backdrop-filter:blur(15px);
+background:#020617;
 
-border:1px solid rgba(212,175,55,.25);
+border:1px solid #0f172a;
 
-box-shadow:0 20px 70px rgba(0,0,0,.6);
+box-shadow:0 25px 60px rgba(0,0,0,.7);
 
 text-align:center;
+
+position:relative;
 
 }
 
@@ -93,35 +91,41 @@ text-align:center;
 
 .title{
 
-font-family:'Poppins',sans-serif;
-font-size:32px;
+font-size:34px;
+
 font-weight:700;
 
-background:linear-gradient(90deg,#d4af37,#ffe58a);
+letter-spacing:.5px;
 
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+color:#22d3ee;
 
 margin-bottom:10px;
 
 }
 
+/* subtitulo */
+
 .subtitle{
 
-color:#d9c7ff;
-margin-bottom:25px;
-font-size:15px;
+color:#94a3b8;
+
+margin-bottom:30px;
 
 }
 
-/* barra */
+/* barra progresso */
 
 .progress{
 
 width:100%;
-height:18px;
-background:#2b0045;
-border-radius:30px;
+height:16px;
+
+background:#020617;
+
+border-radius:20px;
+
+border:1px solid #0f172a;
+
 overflow:hidden;
 
 }
@@ -131,9 +135,9 @@ overflow:hidden;
 height:100%;
 width:0%;
 
-background:linear-gradient(90deg,#d4af37,#ffd86b);
+background:linear-gradient(90deg,#22d3ee,#38bdf8);
 
-border-radius:30px;
+box-shadow:0 0 12px #22d3ee;
 
 transition:.3s;
 
@@ -144,9 +148,10 @@ transition:.3s;
 .percent{
 
 margin-top:12px;
-font-weight:700;
-font-size:18px;
-color:#ffd86b;
+
+font-weight:600;
+
+color:#22d3ee;
 
 }
 
@@ -155,20 +160,20 @@ color:#ffd86b;
 .btn{
 
 display:block;
-margin-top:30px;
+
+margin-top:35px;
+
 padding:15px;
 
-background:linear-gradient(135deg,#d4af37,#ffd86b);
+border-radius:30px;
 
-color:#2a0048;
+background:linear-gradient(90deg,#22d3ee,#38bdf8);
 
-border-radius:40px;
-
-text-decoration:none;
+color:#020617;
 
 font-weight:700;
 
-font-family:'Poppins',sans-serif;
+text-decoration:none;
 
 transition:.25s;
 
@@ -186,29 +191,7 @@ transform:scale(1.05);
 
 <body>
 
-<div class="bg-glow"></div>
-
-<script>
-
-/* partículas */
-
-for(let i=0;i<30;i++){
-
-let p=document.createElement("div")
-
-p.className="particle"
-
-p.style.left=Math.random()*100+"vw"
-
-p.style.animationDuration=(6+Math.random()*8)+"s"
-
-document.body.appendChild(p)
-
-}
-
-</script>
-
-<div class="box">
+<div class="card">
 
 <div class="title">
 MEGA FEIRÃO
@@ -226,7 +209,7 @@ Sua oferta está sendo preparada
 0%
 </div>
 
-<a class="btn" href="https://centrodefeiraainc.github.io/2feirao/inicio/">
+<a class="btn" href="https://acessovipclientes.github.io/feirao/inicio/">
 CONTINUAR
 </a>
 
